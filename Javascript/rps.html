@@ -1,0 +1,113 @@
+<body>
+  <style>
+    button {
+      display: inline-block;
+      background-color: #ffffff;
+      padding: 20px;
+      width: 100px;
+      color: #000000;
+      text-align: center;
+    }
+  </style>
+  <title>Rock Paper Scissors</title>                  
+  <p id="2"></p>
+  <p id="1"></p>
+  <button onclick="run('1')" type="button" id="3">Rock</button>
+  <button onclick="run('2')" type="button" id="4">Paper</button>
+  <button onclick="run('3')" type="button" id="5">Scissors</button>
+  <button onclick="Restart()" type="button" id="6" style="display: 'none';">Retry</button>
+    <script>
+      
+      let cont = 0;
+
+      Restart();
+      
+      function Restart(){
+       cont = 0;
+       document.getElementById("3").style.display = "inline";
+       document.getElementById("4").style.display = "inline";
+       document.getElementById("5").style.display = "inline";
+       document.getElementById("6").style.display = "none";
+       document.getElementById("2").innerHTML = localStorage.getItem('wins');
+       document.getElementById("1").innerHTML = localStorage.getItem('losses');
+      }
+      function win(){
+        if (localStorage.wincount) {
+          localStorage.wincount = Number(localStorage.wincount) + 1;
+        } else {
+          localStorage.wincount = 1;
+        }
+      }
+      function lose(){
+        if (localStorage.losecount) {
+          localStorage.losecount = Number(localStorage.losecount) + 1;
+        } else {
+          localStorage.losecount = 1;
+        }
+      }
+        function run(innum){ 
+        if (cont == 0){
+         let ranstr;
+         var rannum = Math.floor(Math.random() * 3) + 1;
+
+         if (rannum == 1){
+           let ranstr = "Rock";
+           document.getElementById("1").innerHTML = "RPS bot chose: " + ranstr;
+          }
+         else if (rannum == 2){
+           let ranstr = "Paper";
+           document.getElementById("1").innerHTML = "RPS bot chose: " + ranstr;
+          }
+         else if (rannum == 3){
+           let ranstr = "Scissors";
+           document.getElementById("1").innerHTML = "RPS bot chose: " + ranstr;
+          }
+    
+         if (innum == rannum){
+           document.getElementById("2").innerHTML = "It is a tie, go again";
+          }
+         else if (innum == 1 && rannum == 3){
+           document.getElementById("2").innerHTML = "You win";
+           document.getElementById("3").style.display = "none";
+           document.getElementById("4").style.display = "none";
+           document.getElementById("5").style.display = "none";
+           document.getElementById("6").style.display = "block";
+           win();
+           localStorage.setItem('wins', "You have won this many times: " + localStorage.wincount);
+           cont += 1;
+          }
+         else if (innum == 3 && rannum == 2){
+           document.getElementById("2").innerHTML = "You win";
+           document.getElementById("3").style.display = "none";
+           document.getElementById("4").style.display = "none";
+           document.getElementById("5").style.display = "none";
+           document.getElementById("6").style.display = "block";
+           win();
+           localStorage.setItem('wins', "You have won this many times: " + localStorage.wincount);
+           cont += 1;
+          }
+         else if (innum == 2 && rannum == 1){
+           document.getElementById("2").innerHTML = "You win";
+           document.getElementById("3").style.display = "none";
+           document.getElementById("4").style.display = "none";
+           document.getElementById("5").style.display = "none";
+           document.getElementById("6").style.display = "block";
+           win();
+           localStorage.setItem('wins', "You have won this many times: " + localStorage.wincount);
+           cont += 1;
+          }
+         else {
+           document.getElementById("2").innerHTML = "You lose";
+           document.getElementById("3").style.display = "none";
+           document.getElementById("4").style.display = "none";
+           document.getElementById("5").style.display = "none";
+           document.getElementById("6").style.display = "block";
+           lose();
+           localStorage.setItem('losses', "You have lost this many times: " + localStorage.losecount);
+           cont += 1;
+          }
+      }
+    }
+    
+    </script>
+</body> 

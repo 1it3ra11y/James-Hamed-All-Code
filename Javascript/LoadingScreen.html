@@ -1,0 +1,39 @@
+<html>
+  <body>
+    <title>Loading screen</title>
+    <h1>Loading</h1>
+    <table>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+    </table>
+    <style>
+      td {
+        width: 100px;
+        height: 100px;
+        background-color: rgb(255, 255, 255);
+        animation-name: cube;
+        animation-duration: 5s;
+        animation-iteration-count: infinite;
+      }
+     
+      @keyframes cube{
+        0% {background-color: rgb(255, 255, 255); width: 100px; height: 100px; transform: rotate(0deg);}
+        50% {background-color: rgb(0, 0, 0); width: 0px; height: 0px; transform: rotate(360deg);}
+        100% {background-color: rgb(255, 255, 255); width: 100px; height: 100px; transform: rotate(0deg);}
+      }
+    </style>
+  </body>
+</html>

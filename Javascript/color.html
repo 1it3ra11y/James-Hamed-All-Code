@@ -1,0 +1,20 @@
+<body>
+    <p id="id1"></p>
+    <button onclick="tred('red')">turn red</button>
+    <button onclick="tred('green')">turn green</button>
+    <button onclick="tred('black')">turn black</button>
+    <button onclick="tred('blue')">turn blue</button>
+    <button onclick="tred('pink')">turn pink</button>
+    <button onclick="tred('purple')">turn purple</button>
+    <button onclick="tred('white')">turn white</button>
+    <button onclick="tred('yellow')">turn yellow</button>
+    <button onclick="tred('orange')">turn orange</button>
+
+    <script>
+        const el1 = document.getElementById("id1");
+        function tred(color) {
+            el1.style.color = color;
+            el1.innerHTML = color;
+        }
+    </script>
+</body>
